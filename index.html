@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vidit Doshi — Data &amp; Business Analyst</title>
+<script>
+  /* Always open at the very top. Runs in <head> before the body exists, so a
+     leftover "#section" in the URL (from a bookmark, history, or shared link)
+     has no element to jump to, and we also disable the browser's scroll
+     restoration. In-page nav links still work normally once the page is open. */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+</script>
 <meta name="description" content="Vidit Doshi — Data &amp; Business Analyst with 3+ years across finance operations, lending, healthcare and product. SQL, Python, Tableau, cloud. Experience, education, and live analytics projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -377,6 +385,10 @@
   <div class="wrap">© <span id="yr"></span> Vidit Doshi · <a href="https://github.com/viditdoshi46" target="_blank" rel="noopener" style="color:var(--indigo);font-weight:600">github.com/viditdoshi46</a></div>
 </footer>
 
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  /* belt-and-suspenders: ensure we're at the top after full load */
+  window.addEventListener('load', function(){ if (!location.hash) window.scrollTo(0, 0); });
+</script>
 </body>
 </html>
