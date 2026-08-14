@@ -79,10 +79,16 @@
     color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;letter-spacing:.02em}
   .id-top .nm{font-weight:800;color:var(--ink);font-size:1.05rem}
   .id-top .rl{color:var(--muted);font-size:.9rem}
-  .id-rows{margin-top:16px;display:grid;gap:10px}
-  .id-row{display:flex;align-items:center;gap:10px;font-size:.92rem}
-  .id-row .k{color:var(--muted);width:86px;flex:0 0 86px}
-  .id-row .v{color:var(--ink);font-weight:500}
+  .id-div{height:1px; background:var(--line); margin:18px 0}
+  .id-rows{display:grid; gap:14px}
+  .id-row{display:grid; grid-template-columns:72px 1fr; gap:12px; align-items:start; font-size:.93rem}
+  .id-row .k{color:var(--muted); font-size:.72rem; font-weight:700; text-transform:uppercase;
+             letter-spacing:.05em; padding-top:3px}
+  .id-row .v{color:var(--ink); font-weight:500; line-height:1.5}
+  .id-row .v .muted2{color:var(--muted); font-weight:500}
+  .stack{display:flex; flex-wrap:wrap; gap:6px}
+  .stack span{background:var(--bg-soft); border:1px solid var(--line); color:var(--ink);
+              font-size:.8rem; font-weight:600; padding:3px 9px; border-radius:8px}
 
   /* sections */
   section{padding:72px 0}
@@ -209,11 +215,15 @@
         <div class="avatar">VD</div>
         <div><div class="nm">Vidit Doshi</div><div class="rl">Data &amp; Business Analyst</div></div>
       </div>
+      <div class="id-div"></div>
       <div class="id-rows">
-        <div class="id-row"><span class="k">Now</span><span class="v">Data Specialist · University of Illinois</span></div>
-        <div class="id-row"><span class="k">Focus</span><span class="v">Analytics · BI · predictive modeling</span></div>
-        <div class="id-row"><span class="k">Stack</span><span class="v">SQL · Python · Tableau · Snowflake · AWS</span></div>
-        <div class="id-row"><span class="k">Education</span><span class="v">M.S. MIS · Illinois &nbsp;·&nbsp; B.Tech Data Science · NMIMS</span></div>
+        <div class="id-row"><span class="k">Now</span><span class="v">Data Specialist <span class="muted2">·</span> University of Illinois</span></div>
+        <div class="id-row"><span class="k">Focus</span><span class="v">Analytics <span class="muted2">·</span> BI <span class="muted2">·</span> Predictive modeling</span></div>
+        <div class="id-row"><span class="k">Stack</span>
+          <div class="stack"><span>SQL</span><span>Python</span><span>Tableau</span><span>Snowflake</span><span>AWS</span></div></div>
+        <div class="id-row"><span class="k">Education</span>
+          <span class="v">M.S., MIS <span class="muted2">·</span> University of Illinois<br>
+          B.Tech, Data Science <span class="muted2">·</span> NMIMS</span></div>
       </div>
     </aside>
   </div>
