@@ -149,6 +149,11 @@
   .lnk.code{background:#fff; border:1px solid var(--line); color:var(--ink)}
   .lnk.code:hover{border-color:var(--ink)}
   .note{margin-top:14px; font-size:.85rem; color:var(--muted); font-style:italic}
+  /* placeholder link for a dashboard not yet published */
+  .lnk.soon{background:#f1f5f9; color:#64748b; border:1px dashed #cbd5e1; cursor:default}
+  .soon-tag{display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.04em;
+     text-transform:uppercase; color:#b45309; background:#fff7ed; border:1px solid #fed7aa;
+     padding:2px 8px; border-radius:999px; margin-left:8px; vertical-align:middle}
 
   /* additional analyses */
   .more-h{margin-top:44px; font-weight:700; color:var(--ink); font-size:1.05rem}
@@ -289,15 +294,15 @@
 <section id="work">
   <div class="wrap">
     <div class="kicker">Selected projects</div>
-    <h2 class="sec">End-to-end analytics I've shipped, each one live and clickable.</h2>
-    <p class="sec-sub">Grouped by the skill they demonstrate, not the industry. Figures below are real, measured results, and all three run as deployed apps you can open right now.</p>
+    <h2 class="sec">Seven end-to-end analytics projects across four domains.</h2>
+    <p class="sec-sub">Grouped by domain and the skill each demonstrates. Every figure is a real, measured result; five projects run as live apps you can open now, and two FinTech dashboards are being published in Tableau.</p>
 
     <div class="proj-grid">
 
-      <article class="card">
+      <article class="card" style="--accent:#0d9488">
         <div class="card-head">
           <h3 class="p-title">Hospital 30-Day Readmission Risk</h3>
-          <span class="domain">Predictive Modeling</span>
+          <span class="domain">Healthcare · Predictive Modeling</span>
         </div>
         <p class="p-desc">Which discharged patients will bounce back within 30 days, and where should limited follow-up time go? I cleaned ~101,766 encounters, engineered prior-utilization and discharge features, and trained an <b>interpretable logistic-regression</b> model with odds ratios and a live risk scorer.</p>
         <div class="metrics">
@@ -312,10 +317,10 @@
         </div>
       </article>
 
-      <article class="card c2">
+      <article class="card" style="--accent:#0d9488">
         <div class="card-head">
           <h3 class="p-title">Medicare Part D Prescriber Anomaly Detection</h3>
-          <span class="domain">Anomaly Detection</span>
+          <span class="domain">Healthcare · Anomaly Detection</span>
         </div>
         <p class="p-desc">With ~1M prescribers and tens of billions in drug spend, integrity teams can audit only a sliver. I score each prescriber <b>against peers in their own specialty</b>, using robust median/MAD z-scores plus an IsolationForest, so an oncologist isn't compared to a family NP. Every flag ships with a plain-English reason.</p>
         <div class="metrics">
@@ -330,7 +335,43 @@
         </div>
       </article>
 
-      <article class="card c3">
+      <article class="card" style="--accent:#059669">
+        <div class="card-head">
+          <h3 class="p-title">A/B Test &amp; Conversion Lift</h3>
+          <span class="domain">Marketing · Experimentation</span>
+        </div>
+        <p class="p-desc">Did a new ad creative lift conversion, for whom, and how often should we show it? A rigorous experiment analysis across ~600k users: a two-proportion z-test with confidence intervals, per-segment effects, and an ad-fatigue frequency cap, ending in a clear ship decision. The live app includes an A/B calculator and a sample-size / power planner.</p>
+        <div class="metrics">
+          <div class="metric"><div class="mv"><span>+11.5%</span></div><div class="ml">relative conversion lift</div></div>
+          <div class="metric"><div class="mv">p ≈ 1e-14</div><div class="ml">z = 7.7 · CI entirely above zero</div></div>
+          <div class="metric"><div class="mv"><span>Mobile</span></div><div class="ml">strongest segment (heterogeneous effect)</div></div>
+        </div>
+        <div class="tech"><span class="t">Python</span><span class="t">Statistics (z-test, power)</span><span class="t">Plotly</span><span class="t">Streamlit</span></div>
+        <div class="p-links">
+          <a class="lnk live" href="https://marketing-ab-test-viditdoshi46.streamlit.app" target="_blank" rel="noopener">▶ Live app</a>
+          <a class="lnk code" href="https://github.com/viditdoshi46/marketing-ab-test" target="_blank" rel="noopener">View code</a>
+        </div>
+      </article>
+
+      <article class="card" style="--accent:#059669">
+        <div class="card-head">
+          <h3 class="p-title">Growth Analytics: Funnel &amp; CAC:LTV</h3>
+          <span class="domain">Marketing · Growth / GTM</span>
+        </div>
+        <p class="p-desc">Where should the next marketing dollar go? Channel-level CAC, LTV, LTV:CAC and payback across the acquisition funnel, with a live <b>budget-reallocation planner</b> that models diminishing returns. Owned and earned channels win; paid display loses money on every customer.</p>
+        <div class="metrics">
+          <div class="metric"><div class="mv"><span>29×</span></div><div class="ml">best channel LTV:CAC (Email)</div></div>
+          <div class="metric"><div class="mv"><span>0.2×</span></div><div class="ml">worst (Display), cut it</div></div>
+          <div class="metric"><div class="mv">$580k</div><div class="ml">channel spend analyzed</div></div>
+        </div>
+        <div class="tech"><span class="t">Python</span><span class="t">CAC / LTV</span><span class="t">Plotly</span><span class="t">Streamlit</span></div>
+        <div class="p-links">
+          <a class="lnk live" href="https://marketing-funnel-cac-ltv-viditdoshi46.streamlit.app" target="_blank" rel="noopener">▶ Live app</a>
+          <a class="lnk code" href="https://github.com/viditdoshi46/marketing-funnel-cac-ltv" target="_blank" rel="noopener">View code</a>
+        </div>
+      </article>
+
+      <article class="card" style="--accent:#7c3aed">
         <div class="card-head">
           <h3 class="p-title">Ask-Your-Data: Natural-Language Analytics Assistant</h3>
           <span class="domain">GenAI · Text-to-SQL</span>
@@ -349,19 +390,50 @@
         </div>
       </article>
 
+      <article class="card" style="--accent:#2563eb">
+        <div class="card-head">
+          <h3 class="p-title">Transaction Fraud Detection &amp; Triage<span class="soon-tag">Tableau · publishing soon</span></h3>
+          <span class="domain">FinTech · Fraud</span>
+        </div>
+        <p class="p-desc">Which transactions should an investigations team review first, and how deep? An <b>interpretable fraud scorer</b> ranks transactions into a cost-optimized alert queue, each flag carrying a plain-English reason. Delivered as a Tableau dashboard with the savings-vs-review-budget curve.</p>
+        <div class="metrics">
+          <div class="metric"><div class="mv">0.913</div><div class="ml">ROC-AUC</div></div>
+          <div class="metric"><div class="mv"><span>62% / 52%</span></div><div class="ml">top-1% alerts are fraud / of fraud $ recovered</div></div>
+          <div class="metric"><div class="mv"><span>$458k</span></div><div class="ml">net savings at the cost-optimal cutoff</div></div>
+        </div>
+        <div class="tech"><span class="t">Python</span><span class="t">scikit-learn</span><span class="t">SQL · DuckDB/Snowflake</span><span class="t">Tableau</span></div>
+        <div class="p-links">
+          <span class="lnk soon">▶ Tableau dashboard (soon)</span>
+          <a class="lnk code" href="https://github.com/viditdoshi46/fintech-fraud-detection" target="_blank" rel="noopener">View code</a>
+        </div>
+      </article>
+
+      <article class="card" style="--accent:#2563eb">
+        <div class="card-head">
+          <h3 class="p-title">Credit-Card Churn &amp; Lifetime Value<span class="soon-tag">Tableau · publishing soon</span></h3>
+          <span class="domain">FinTech · Retention</span>
+        </div>
+        <p class="p-desc">Not just <i>who</i> churns, but <i>who's worth a retention offer</i>. Churn probability × customer lifetime value = revenue at risk, plus a <b>save-offer ROI model</b> that picks the campaign size and produces the actual call list. Delivered as a Tableau dashboard with the targeting curve.</p>
+        <div class="metrics">
+          <div class="metric"><div class="mv"><span>$4.5M</span></div><div class="ml">of a $12.3M book at risk</div></div>
+          <div class="metric"><div class="mv"><span>3.6×</span></div><div class="ml">top-decile churn lift (ROC-AUC 0.83)</div></div>
+          <div class="metric"><div class="mv"><span>$666k</span></div><div class="ml">net retained value at the campaign optimum</div></div>
+        </div>
+        <div class="tech"><span class="t">Python</span><span class="t">scikit-learn</span><span class="t">SQL · DuckDB/Snowflake</span><span class="t">Tableau</span></div>
+        <div class="p-links">
+          <span class="lnk soon">▶ Tableau dashboard (soon)</span>
+          <a class="lnk code" href="https://github.com/viditdoshi46/fintech-churn-clv" target="_blank" rel="noopener">View code</a>
+        </div>
+      </article>
+
     </div>
 
-    <div class="more-h">Additional analyses</div>
+    <div class="more-h">Additional analysis</div>
     <div class="more-grid">
       <div class="mini">
         <div class="mt">Consumer Loan Default Risk</div>
         <div class="md">Analyzed <b>500K+ loan records</b> in Python and SQL to find the strongest predictors of default (credit score, DTI, loan purpose), and built a Tableau view of default rates by borrower segment to inform underwriting thresholds.</div>
         <div class="tech"><span class="t">Python</span><span class="t">SQL</span><span class="t">Tableau</span></div>
-      </div>
-      <div class="mini">
-        <div class="mt">Marketing Campaign Conversion Lift (A/B)</div>
-        <div class="md">Designed and analyzed an A/B test across <b>580K+ users</b>; ran a two-proportion z-test in Python (SciPy) confirming a significant conversion lift (<b>p &lt; 0.05</b>) and recommended an optimal ad-exposure threshold balancing lift against fatigue.</div>
-        <div class="tech"><span class="t">Python (SciPy)</span><span class="t">A/B testing</span><span class="t">Tableau</span></div>
       </div>
     </div>
   </div>
